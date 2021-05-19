@@ -11,10 +11,11 @@ require 'faker'
 User.destroy_all
 
 5.times do
-  x = Faker::Verb.simple_present 
-  y = Faker::Verb.ing_form 
-  z = Faker::Verb.base
+  x = Faker::Name.name 
+  y = Faker::Name.last_name 
+  z = Faker::PhoneNumber.cell_phone
   User.create(name: "#{x} #{y} #{z}")
 end
 puts "seeded #{User.all.size} Users"
 puts "first user name: #{User.first.name}"
+
