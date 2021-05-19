@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+User.destroy_all
+
+5.times do
+  x = Faker::Verb.simple_present 
+  y = Faker::Verb.ing_form 
+  z = Faker::Verb.base
+  User.create(name: "#{x} #{y} #{z}")
+end
+puts "seeded #{User.all.size} Users"
+puts "first user name: #{User.first.name}"
